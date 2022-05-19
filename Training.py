@@ -7,6 +7,11 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
+# Use Pytorch?
+
+################### Make Photo Small ######################
+
+'''Not sure best package to use -- needs further research. Also combine with augmentation as separate file?'''
 
 ################### Loads Images In ######################
 
@@ -38,7 +43,7 @@ for file in os.listdir('Data/Labels'): # Loop to open and save each file
 
 ########################### Split Data ##########################
 
-'''Come back to once tfrecords established/ laebls and '''
+'''Come back to once tfrecords established and laebls '''
 
 # Splits the data into the train and test sets
 train, test = train_test_split(img, test_size = .2)
