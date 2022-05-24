@@ -29,22 +29,27 @@ plt.imshow(img[2]) #Plots one photo
 Multiple other programs have been written to convert
 data to a tf records format and convert json/xml to CSV.
 Should I still write my own version??
- '''
+'''
+
 
 
 ########################### Split Data ##########################
 
-'''Come back to once tfrecords established and labels '''
+'''
+Come back to once tfrecords established and labels. 
+Currently splitting through conversion to csv. Best method?
+Also do I need validation?
+'''
 
 # Splits the data into the train and test sets
-train, test = train_test_split(img, test_size = .2)
+#train, test = train_test_split(img, test_size = .2)
 
 
 # Adds a validation set (DO I NEED THIS!!!!!!)
 #train, val = train_test_split(train, test_size = .2)
 
 
-plt.imshow(test[0])
+#plt.imshow(test[0])
 
 
 #labels = [{'name':'Hemo', 'id':1}, {'name':'Cell', 'id':2}] #Creates the labels for the two objects being tested
