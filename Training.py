@@ -3,9 +3,9 @@ import os
 import json
 import PIL
 import numpy as np
-#import tensorflow as tf
-import torch
-import torchvision
+import tensorflow as tf
+#import torch
+#import torchvision
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
@@ -56,3 +56,5 @@ Also do I need validation?
 
 
 ########################### Model ##########################
+
+model = tf.keras.models.Sequential()
