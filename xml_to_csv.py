@@ -1,4 +1,13 @@
-# Converts xml annotations to csv files for use in training
+# Converts xml annotations to csv files for use in training.
+#
+#
+# Can be run using the following two commands ate the command line:
+#
+# python xml_to_csv.py Code\Data\Images\test
+# python xml_to_csv.py Code\Data\Images\train
+#
+#
+
 
 import sys
 import os
@@ -10,6 +19,7 @@ import xml.etree.ElementTree as ET
 def xml_to_csv(path):
     
     box_list = []
+    
     for f in glob.glob(path+'\*.xml'):
         tree = ET.parse(f)
         root = tree.getroot()
