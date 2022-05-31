@@ -9,6 +9,28 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
+##################### Create Labelmap ######################## 
+
+label_list = ["hemo","cell"]
+path = 'Data\\'
+
+# Function to create pbtext file containing labels
+def create_labelmap(labels = label_list, path = path):
+    
+    with open(path + 'label_map.pbtxt', 'w') as f: # Creates the labelmap 
+        x = 1 # Initial ID value
+        
+        # Goes through each label writing the appropriate labelmap format
+        for label in label_list:
+            f.write ("item {\n")
+            f.write ("\tid: %s\n"%(x))
+            f.write ("\tname: '"+ label_list[x-1] + "'\n")
+            f.write ("}\n")
+            
+            x = x+1 #Increments 
+            
+#create_labelmap()
+
 ################### Loads Images In ######################
 
 
@@ -21,15 +43,8 @@ for file in os.listdir('../Code/TestData/train'): # Loop to open and save each f
 
 plt.imshow(img[2]) #Plots one photo
 
-
-
-##################### Load Labels ######################## 
-
-'''
-Multiple other programs have been written to convert
-data to a tf records format and convert json/xml to CSV.
-Should I still write my own version??
-'''
+    
+    
 
 
 
@@ -57,6 +72,6 @@ Also do I need validation?
 
 ########################### Model ##########################
 
-model_path = 
+model_path = ''
 model_name = 'faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
 link = 'https://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
