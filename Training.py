@@ -57,4 +57,6 @@ Also do I need validation?
 
 ########################### Model ##########################
 
-model = tf.keras.models.Sequential()
+model_path = 
+model_name = 'faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
+link = 'https://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
