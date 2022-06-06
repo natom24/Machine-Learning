@@ -48,10 +48,21 @@ plt.imshow(img[1]) #Plots one photo
 
     
     
-########################### Model ##########################
+########################### Model Config ##########################
+
+
+
+
+
+
+
+
 
 model_path = 'Models/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8/saved_model'
 model_name = 'faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
-link = 'https://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
+link = 'https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.config'
 
-model = tf.saved_model.load(model_path)
+pipeline_config_path = "Models/faster_rcnn_resnet152_v1_640x640_coco17_tpu-8/pipeline.config"
+
+with open(pipeline_config_path, 'w') as f:
+    config = f.read()
