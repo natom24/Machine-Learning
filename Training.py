@@ -3,11 +3,14 @@ import os
 import json
 import PIL
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
 #import torch
 #import torchvision
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from absl import flags
+import tensorflow.compat.v2 as tf
+from object_detection import model_lib_v2
 
 ########################### Paths ###########################
 
@@ -50,19 +53,11 @@ plt.imshow(img[1]) #Plots one photo
     
 ########################### Model Config ##########################
 
-
-
-
-
-
-
-
-
 model_path = 'Models/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8/saved_model'
 model_name = 'faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
-link = 'https://github.com/tensorflow/models/blob/master/research/object_detection/configs/tf2/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.config'
+link = 'https://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
 
 pipeline_config_path = "Models/faster_rcnn_resnet152_v1_640x640_coco17_tpu-8/pipeline.config"
 
 with open(pipeline_config_path, 'w') as f:
-    config = f.read()
+#    config = 
