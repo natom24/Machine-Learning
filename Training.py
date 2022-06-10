@@ -1,40 +1,20 @@
 # Import packages
 import os
-import json
 import PIL
 import numpy as np
 #import tensorflow as tf
-#import torch
+import torch
 #import torchvision
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from absl import flags
-import tensorflow.compat.v2 as tf
-from object_detection import model_lib_v2
 
-########################### Paths ###########################
+########################### test for GPU ###########################
 
+device = (torch.device('cuda') if torch.cuda.is_available()
+                  else torch.device('cpu'))
 
+print(f"Training on device {device}.")
 
 ##################### Create Labelmap ######################## 
-
-label_list = ["hemo","cell"] # Label list used here
-path = 'Data\\' # Default Path
-
-# Function to create pbtext file containing labels
-def create_labelmap(labels = label_list, path = path):
-    
-    with open(path + 'label_map.pbtxt', 'w') as f: # Creates the labelmap 
-        ID = 1 # Initial ID value
-        
-        # Goes through each label writing the appropriate labelmap format
-        for label in label_list:
-            f.write ("item {\n")
-            f.write ("\tid: %s\n"%(ID))
-            f.write ("\tname: '"+ label_list[ID-1] + "'\n")
-            f.write ("}\n")
-            
-            ID = ID+1 #Increments ID value
 
 
 ################### Loads Images In ######################
@@ -53,11 +33,3 @@ plt.imshow(img[1]) #Plots one photo
     
 ########################### Model Config ##########################
 
-model_path = 'Models/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8/saved_model'
-model_name = 'faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
-link = 'https://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz'
-
-pipeline_config_path = "Models/faster_rcnn_resnet152_v1_640x640_coco17_tpu-8/pipeline.config"
-
-with open(pipeline_config_path, 'w') as f:
-#    config = 
