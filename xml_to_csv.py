@@ -1,11 +1,9 @@
 # Converts xml annotations to csv files for use in training.
 #
 #
-# Can be run using the following two commands ate the command line:
+# Can be run using the following command at the command line:
 #
-# python xml_to_csv.py Code\Data\Images\test
-# python xml_to_csv.py Code\Data\Images\train
-#
+# python xml_to_csv.py Code\Data\Labels
 #
 
 
@@ -39,6 +37,6 @@ def xml_to_csv(path):
 def main():
     path = sys.argv[1]
     data = xml_to_csv(path = path)
-    np.savetxt(path+'_data.csv', data, delimiter =", ", fmt ='% s')
+    np.savetxt(path+'_data.csv', data, delimiter =", ",header = 'File Name,Width,Length,Label,xmin,ymin,xmax,ymax', fmt ='% s')
 
 main()
