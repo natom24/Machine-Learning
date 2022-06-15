@@ -4,7 +4,7 @@ import torch
 import pandas as pd
 #import torch.utils.data.Dataset
 from PIL import Image
-from torchvision import transforms, utils
+from torchvision import utils
 
 torch.__version__
 
@@ -12,7 +12,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
     
     """Hemocyte dataset"""
 
-    def __init__(self,root,annot,transform=None):
+    def __init__(self,root,annot):
         """
         root: the path to the images
         annot: the name of the csv file containing all label data
@@ -21,7 +21,6 @@ class HemocyteDataset(torch.utils.data.Dataset):
         
         self.root = root
         self.annot = pd.read_csv(os.path.join(root, 'Data', annot))
-        self.transform = transform
         
         self.img = list(os.listdir(os.path.join(root,'Data',"Images")))
         

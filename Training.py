@@ -2,8 +2,10 @@
 import os
 import PIL
 import numpy as np
-#import tensorflow as tf
+import pandas as pd
+import datetime
 import torch
+import torchvision
 #import torchvision
 import matplotlib.pyplot as plt
 
@@ -13,9 +15,6 @@ device = (torch.device('cuda') if torch.cuda.is_available()
                   else torch.device('cpu'))
 
 print(f"Training on device {device}.")
-
-##################### Create Labelmap ######################## 
-
 
 ################### Loads Images In ######################
 
@@ -29,7 +28,9 @@ for file in os.listdir('Data/Images/test'): # Loop to open and save each file to
 
 plt.imshow(img[1]) #Plots one photo
 
-    
-    
-########################### Model Config ##########################
+########################### Model ###########################
 
+model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+
+for e in range(epoch):
+    print("add stuff")    
