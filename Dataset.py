@@ -71,3 +71,4 @@ class HemocyteDataset(torch.utils.data.Dataset):
         Return the total number of images
         """
         return len(self.img)
+
