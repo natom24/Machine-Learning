@@ -1,28 +1,27 @@
 import os
 import re
 import torch
-import pandas as pd
-#import torch.utils.data.Dataset
+from torchvision import transforms
+import xml.etree.ElementTree as ET
 from PIL import Image
-from torchvision import utils
-
-torch.__version__
+#from torchvision import utils
 
 class HemocyteDataset(torch.utils.data.Dataset):
     
     """Hemocyte dataset"""
 
-    def __init__(self,root,annot):
+    def __init__(self,file_dir, transforms = None):
         """
         root: the path to the images
         annot: the name of the csv file containing all label data
         transform: any transformations that 
         """
         
-        self.root = root
-        self.annot = pd.read_csv(os.path.join(root, 'Data', annot))
+        self.file_dir = file_dir
         
-        self.img = list(os.listdir(os.path.join(root,'Data',"Images")))
+        self.img_list = list(os.listdir(os.path.join(file_dir,'Data',"Images")))
+        
+        self.transforms = transforms
         
     
     def __getitem__(self,idx):
@@ -30,29 +29,32 @@ class HemocyteDataset(torch.utils.data.Dataset):
         Load in annotations and images
         """
         # Pulls a string with the path to the selected image
-        img_path = os.path.join(self.root,'Data',"Images",self.img[idx]) 
-        annot_name = re.sub('\.JPG','.xml',self.img[idx]) # Get name of file with xml ending
+        
+        img_path = os.path.join(self.file_dir,'Data',"Images",self.img_list[idx]) 
+        
+        annot_name = re.sub('\.JPG','.xml',self.img_list[idx]) # Get name of file with xml ending
+        annot_path = os.path.join(self.file_dir,'Data',"Labels",annot_name)
         
         img = Image.open(img_path)
         img = img.convert('RGB')
         
-        label_data = self.annot[self.annot.iloc[:,0] == annot_name]
-        
         boxes = []
         labels = []
         area = []
-        iscrowd = []
+        #iscrowd = []
         
-        label_data[:,3] = pd.factorize(label_data[:,3])
-        
-        for l in label_data:
+        tree = ET.parse(annot_path)
+        root = tree.getroot()
             
+        for obj in root.findall('object'):
+            box_size = obj.find('bndbox')
             
-            xmin = label_data[l,4]
-            ymin = label_data[l,5]
-            xmax = label_data[l,6]
-            ymax = label_data[l,7]
-            labels.append(label_data[l,3])
+            xmin = int(box_size.find('xmin').text)
+            ymin = int(box_size.find('ymin').text)
+            xmax = int(box_size.find('xmax').text)
+            ymax = int(box_size.find('ymax').text)
+            
+            labels.append(0)
             boxes.append([[xmin, ymin, xmax, ymax]])
             area.append((xmax-xmin)*(ymax-ymin))
             
@@ -60,15 +62,27 @@ class HemocyteDataset(torch.utils.data.Dataset):
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
         target['labels'] = torch.as_tensor(labels, dtype=torch.int64)
-        target['iscrowd'] = torch.zeros(boxes.shape[0], dtype=torch.int64)
+        #target['iscrowd'] = torch.zeros(boxes.shape[0], dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
         
+        if self.transforms != None:
+            #img_transform = self.transforms(img)
+            
+            to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
+            img = to_tensor(img) # Calls conversion
+
         
-        return img,target
+        
+        return {'image':img,'target':target}
         
     def __len__(self,):
         """
         Return the total number of images
         """
-        return len(self.img)
+        return len(self.img_list)
+
+ 
+def collate_fn(batch):
+    return tuple(zip(*batch))
+
 
