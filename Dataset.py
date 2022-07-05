@@ -19,7 +19,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
         
         self.file_dir = file_dir
         
-        self.img_list = list(os.listdir(os.path.join(file_dir,'Data',"Images")))
+        self.img_list = list(os.listdir(os.path.join(file_dir,'Hemo_data',"Images")))
         
         self.transforms = transforms
         
@@ -30,10 +30,10 @@ class HemocyteDataset(torch.utils.data.Dataset):
         """
         # Pulls a string with the path to the selected image
         
-        img_path = os.path.join(self.file_dir,'Data',"Images",self.img_list[idx]) 
+        img_path = os.path.join(self.file_dir,"Hemo_data","Images",self.img_list[idx]) 
         
         annot_name = re.sub('\.JPG','.xml',self.img_list[idx]) # Get name of file with xml ending
-        annot_path = os.path.join(self.file_dir,'Data',"Labels",annot_name)
+        annot_path = os.path.join(self.file_dir,"Hemo_data","Boxes",annot_name)
         
         img = Image.open(img_path)
         img = img.convert('RGB')
@@ -55,25 +55,28 @@ class HemocyteDataset(torch.utils.data.Dataset):
             ymax = int(box_size.find('ymax').text)
             
             labels.append(0)
-            boxes.append([[xmin, ymin, xmax, ymax]])
+            boxes.append([xmin, ymin, xmax, ymax])
             area.append((xmax-xmin)*(ymax-ymin))
             
+
+        
 
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
         target['labels'] = torch.as_tensor(labels, dtype=torch.int64)
+        target['area'] = torch.as_tensor(area, dtype=torch.int64)
         #target['iscrowd'] = torch.zeros(boxes.shape[0], dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
         
-        if self.transforms != None:
+        if self.transforms is not None:
             #img_transform = self.transforms(img)
             
             to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
-            img = to_tensor(img) # Calls conversion
+            imgs = to_tensor(img) # Calls conversion
 
         
         
-        return {'image':img,'target':target}
+        return imgs,target
         
     def __len__(self,):
         """
@@ -83,6 +86,16 @@ class HemocyteDataset(torch.utils.data.Dataset):
 
  
 def collate_fn(batch):
-    return tuple(zip(*batch))
-
-
+    
+    """
+    Formats data in lists since each image often has a different number of objects 
+    """
+    
+    image = list()
+    target = list()
+    
+    for b in batch:
+        image.append(b[0])
+        target.append(b[1])
+    
+    return image,target
