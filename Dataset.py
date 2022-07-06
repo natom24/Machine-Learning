@@ -53,8 +53,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
             ymin = int(box_size.find('ymin').text)
             xmax = int(box_size.find('xmax').text)
             ymax = int(box_size.find('ymax').text)
-            
-            labels.append(0)
+
             boxes.append([xmin, ymin, xmax, ymax])
             area.append((xmax-xmin)*(ymax-ymin))
             
@@ -63,7 +62,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
 
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
-        target['labels'] = torch.as_tensor(labels, dtype=torch.int64)
+        target['labels'] = torch.ones((len(boxes),), dtype=torch.int64)
         target['area'] = torch.as_tensor(area, dtype=torch.int64)
         #target['iscrowd'] = torch.zeros(boxes.shape[0], dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
@@ -99,3 +98,4 @@ def collate_fn(batch):
         target.append(b[1])
     
     return image,target
+

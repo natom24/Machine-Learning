@@ -29,12 +29,12 @@ device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('c
 
 print(f"Training on device {device}.")
 
-model = create_model(num_classes = 1)
+model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
 
 hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True)
 
-data_loader = torch.utils.data.DataLoader(hemo_dataset, batch_size = 4, shuffle = True, collate_fn=collate_fn)
+data_loader = torch.utils.data.DataLoader(hemo_dataset, batch_size = 2, shuffle = True, collate_fn=collate_fn)
 
 params = [p for p in model.parameters() if p.requires_grad]
 
@@ -43,21 +43,29 @@ optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0005)
 
 #hemo_datax
 
-epoch = 1
+num_epoch = 5
 
-for e in range(epoch):
+
+for e in range(num_epoch):
     
     train_one_epoch(model,optimizer,data_loader,device,e)
 
+
+def train(model, optimizer, data_loader, device, epochs = num_epoch):
+
+    for e in range(epochs):
+        model.to(device)
+        model.train()
+        
+        images = list(image.to(device) for image in images)
+        targets = [{k: v.to(device) for k,v in t.items()} for t in targets]
+        
+        loss_dict = model(images, targets)
+        losses = sum(loss for loss in loss_dict.values())
+        optimizer.zero_grad()
+        
+        losses.backward()
+        optimizer.step()
+            
+            
 model.eval()
-torch.cuda.empty_cache()
-
-img, _ = hemo_dataset[1]
-img_int = torch.tensor(img, dtype=torch.uint8)
-with torch.no_grad():
-    prediction = model([img.to(device)])
-    pred = prediction[0]
-
-fig = plt.figure(figsize=(14, 10))
-plt.imshow(draw_bounding_boxes(img_int,
-    pred['boxes'][pred['scores'] > 0.8], width=4).permute(1, 2, 0))
