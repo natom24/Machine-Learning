@@ -2,6 +2,7 @@
 import torch
 import torchvision
 import torch.nn as nn
+import tqdm
 #from datasets import HemocyteDataset
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 import matplotlib.pyplot as plt
@@ -32,40 +33,53 @@ print(f"Training on device {device}.")
 model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
 
-hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True)
 
-data_loader = torch.utils.data.DataLoader(hemo_dataset, batch_size = 2, shuffle = True, collate_fn=collate_fn)
+
+####### Load data #######
+hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True) # Loads hemocyte data in
+
+test_size = int(.5*len(hemo_dataset)) # Generate the size of the test set
+train_size = len(hemo_dataset)-test_size # Generate the size of the train set
+
+train_set, test_set = torch.utils.data.random_split(hemo_dataset, [test_size,train_size]) # Split the data into train and test
+
+train_loader = torch.utils.data.DataLoader(train_set, shuffle = True, collate_fn=collate_fn)
+test_loader = torch.utils.data.DataLoader(test_set, batch_size = 2, shuffle = True, collate_fn=collate_fn)
+##########################
+
+
 
 params = [p for p in model.parameters() if p.requires_grad]
 
-#box_loss = nn.MSEloader()
 optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0005)
 
-#hemo_datax
+loss_function = nn.BCELoss()
 
-num_epoch = 5
-
-
-for e in range(num_epoch):
+def train(model, optimizer, data_loader, device, epochs = 5):
     
-    train_one_epoch(model,optimizer,data_loader,device,e)
-
-
-def train(model, optimizer, data_loader, device, epochs = num_epoch):
-
     for e in range(epochs):
+        
         model.to(device)
         model.train()
         
-        images = list(image.to(device) for image in images)
-        targets = [{k: v.to(device) for k,v in t.items()} for t in targets]
+        for images, targets in data_loader:
+            optimizer.zero_grad()
         
-        loss_dict = model(images, targets)
-        losses = sum(loss for loss in loss_dict.values())
-        optimizer.zero_grad()
+            images = list(image.to(device) for image in images)
+            targets = [{k: v.to(device) for k,v in t.items()} for t in targets]
         
-        losses.backward()
-        optimizer.step()
+            loss_dict = model(images, targets)
+            losses = sum(loss for loss in loss_dict.values())
+        
+            losses.backward()
+            optimizer.step()
             
+        print("Epoch {} has a loss rate of {}".format(e,losses.item()))
             
-model.eval()
+        
+#def eval(model,images)
+#    model.eval()
+    
+    
+    
+#    return()
