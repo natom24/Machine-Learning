@@ -39,8 +39,6 @@ class HemocyteDataset(torch.utils.data.Dataset):
         img = img.convert('RGB')
         
         boxes = []
-        labels = []
-        area = []
         #iscrowd = []
         
         tree = ET.parse(annot_path)
@@ -55,23 +53,23 @@ class HemocyteDataset(torch.utils.data.Dataset):
             ymax = int(box_size.find('ymax').text)
 
             boxes.append([xmin, ymin, xmax, ymax])
-            area.append((xmax-xmin)*(ymax-ymin))
             
 
+
+        if self.transforms is not None:
+            #t_data = self.transforms(img, boxes)
+            #img = t_data['images']
+            #boxes = t_data['boxes']
+            
+            to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
+            imgs = to_tensor(img) # Calls conversion
         
 
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
         target['labels'] = torch.ones((len(boxes),), dtype=torch.int64)
-        target['area'] = torch.as_tensor(area, dtype=torch.int64)
-        #target['iscrowd'] = torch.zeros(boxes.shape[0], dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
         
-        if self.transforms is not None:
-            #img_transform = self.transforms(img)
-            
-            to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
-            imgs = to_tensor(img) # Calls conversion
 
         
         
@@ -82,20 +80,4 @@ class HemocyteDataset(torch.utils.data.Dataset):
         Return the total number of images
         """
         return len(self.img_list)
-
- 
-def collate_fn(batch):
-    
-    """
-    Formats data in lists since each image often has a different number of objects 
-    """
-    
-    image = list()
-    target = list()
-    
-    for b in batch:
-        image.append(b[0])
-        target.append(b[1])
-    
-    return image,target
 

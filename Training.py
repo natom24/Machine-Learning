@@ -13,7 +13,7 @@ from torchvision.utils import draw_bounding_boxes
 def create_model(num_classes):
     
     # load model 
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(pretrained = True) 
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights = True) 
     
     # Define the number of input features
     in_features = model.roi_heads.box_predictor.cls_score.in_features
@@ -30,6 +30,8 @@ device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('c
 
 print(f"Training on device {device}.")
 
+
+
 model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
 
@@ -38,48 +40,69 @@ model = model.to(device) # runs model on GPU if available
 ####### Load data #######
 hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True) # Loads hemocyte data in
 
-test_size = int(.5*len(hemo_dataset)) # Generate the size of the test set
-train_size = len(hemo_dataset)-test_size # Generate the size of the train set
+test_size = int(.25*len(hemo_dataset)) # Generate the size of the test set
+val_size = 0 #int((len(hemo_dataset)-test_size)*.4)
+train_size = len(hemo_dataset)-test_size-val_size # Generate the size of the train set
 
-train_set, test_set = torch.utils.data.random_split(hemo_dataset, [test_size,train_size]) # Split the data into train and test
 
-train_loader = torch.utils.data.DataLoader(train_set, shuffle = True, collate_fn=collate_fn)
-test_loader = torch.utils.data.DataLoader(test_set, batch_size = 2, shuffle = True, collate_fn=collate_fn)
+test_set, train_set, val_set = torch.utils.data.random_split(hemo_dataset, [test_size,train_size, val_size]) # Split the data into train and test
+
+
+train_loader = torch.utils.data.DataLoader(train_set, batch_size = 4,shuffle = False, collate_fn=collate_fn)
+#val_loader = torch.utils.data.DataLoader(val_set, shuffle = True, collate_fn=collate_fn)
 ##########################
 
 
 
 params = [p for p in model.parameters() if p.requires_grad]
 
-optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0005)
+#optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0001)
+optimizer = torch.optim.Adam(params, lr=0.001,  weight_decay=0.0001)
+
+lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,step_size = 3, gamma = .1)
 
 loss_function = nn.BCELoss()
 
-def train(model, optimizer, data_loader, device, epochs = 5):
+def train(model, optimizer, train_loader, device, epochs = 20):
+    
+    loss_iter = []
     
     for e in range(epochs):
         
         model.to(device)
         model.train()
         
-        for images, targets in data_loader:
-            optimizer.zero_grad()
+        for images, targets in tqdm.tqdm(train_loader):
+            
         
             images = list(image.to(device) for image in images)
             targets = [{k: v.to(device) for k,v in t.items()} for t in targets]
         
             loss_dict = model(images, targets)
+            #losses = loss_function(loss_dict, targets)
             losses = sum(loss for loss in loss_dict.values())
-        
+            
             losses.backward()
+            
+            optimizer.zero_grad()
             optimizer.step()
             
+            loss_iter.append(losses.item())
         print("Epoch {} has a loss rate of {}".format(e,losses.item()))
+        
+        #lr_scheduler.step()
+        #valid_loss = 0
+        #model.eval()
+        #for images, target in val_loader:
+        #    model(images)
+            
+
+        
             
         
 #def eval(model,images)
 #    model.eval()
-    
+train(model, optimizer, train_loader, device, epochs = 7)
     
     
 #    return()

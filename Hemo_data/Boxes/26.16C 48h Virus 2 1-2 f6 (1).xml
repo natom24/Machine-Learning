@@ -1,7 +1,7 @@
 <annotation>
-	<folder>train</folder>
-	<filename>34.26C Virus 1_3 1.A.JPG</filename>
-	<path>C:\School\Project\Code\Data\images\train\34.26C Virus 1_3 1.A.JPG</path>
+	<folder>full_Images</folder>
+	<filename>26.16C 48h Virus 2 1-2 f6 (1).JPG</filename>
+	<path>C:\School\Project\Code\Hemo_data\full_Images\26.16C 48h Virus 2 1-2 f6 (1).JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -12,15 +12,15 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>cell</name>
+		<name>hemo</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>759</xmin>
-			<ymin>535</ymin>
-			<xmax>1018</xmax>
-			<ymax>730</ymax>
+			<xmin>492</xmin>
+			<ymin>1049</ymin>
+			<xmax>511</xmax>
+			<ymax>1067</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -29,10 +29,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>864</xmin>
-			<ymin>534</ymin>
-			<xmax>882</xmax>
-			<ymax>552</ymax>
+			<xmin>1138</xmin>
+			<ymin>367</ymin>
+			<xmax>1154</xmax>
+			<ymax>382</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -41,10 +41,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1010</xmin>
-			<ymin>452</ymin>
-			<xmax>1029</xmax>
-			<ymax>473</ymax>
+			<xmin>771</xmin>
+			<ymin>33</ymin>
+			<xmax>792</xmax>
+			<ymax>53</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -53,46 +53,34 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1030</xmin>
-			<ymin>410</ymin>
-			<xmax>1047</xmax>
-			<ymax>427</ymax>
+			<xmin>693</xmin>
+			<ymin>14</ymin>
+			<xmax>704</xmax>
+			<ymax>29</ymax>
 		</bndbox>
 	</object>
 	<object>
-		<name>cell</name>
+		<name>hemo</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>496</xmin>
-			<ymin>551</ymin>
-			<xmax>544</xmax>
-			<ymax>584</ymax>
+			<xmin>678</xmin>
+			<ymin>11</ymin>
+			<xmax>693</xmax>
+			<ymax>24</ymax>
 		</bndbox>
 	</object>
 	<object>
-		<name>cell</name>
+		<name>hemo</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>809</xmin>
-			<ymin>798</ymin>
-			<xmax>863</xmax>
-			<ymax>847</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cell</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>937</xmin>
-			<ymin>384</ymin>
-			<xmax>961</xmax>
-			<ymax>406</ymax>
+			<xmin>674</xmin>
+			<ymin>975</ymin>
+			<xmax>698</xmax>
+			<ymax>998</ymax>
 		</bndbox>
 	</object>
 </annotation>
