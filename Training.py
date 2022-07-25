@@ -36,7 +36,7 @@ model = model.to(device) # runs model on GPU if available
 ####### Load data #######
 hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True) # Loads hemocyte data in
 
-test_size = int(.25*len(hemo_dataset)) # Generate the size of the test set
+test_size = int(.2*len(hemo_dataset)) # Generate the size of the test set
 val_size = 0 #int((len(hemo_dataset)-test_size)*.4)
 train_size = len(hemo_dataset)-test_size-val_size # Generate the size of the train set
 
@@ -44,7 +44,7 @@ train_size = len(hemo_dataset)-test_size-val_size # Generate the size of the tra
 test_set, train_set, val_set = torch.utils.data.random_split(hemo_dataset, [test_size,train_size, val_size]) # Split the data into train and test
 
 
-train_loader = torch.utils.data.DataLoader(train_set, batch_size = 4,shuffle = False, collate_fn=collate_fn)
+train_loader = torch.utils.data.DataLoader(train_set, batch_size = 6,shuffle = False, collate_fn=collate_fn)
 #val_loader = torch.utils.data.DataLoader(val_set, shuffle = True, collate_fn=collate_fn)
 ##########################
 
@@ -94,7 +94,7 @@ def train(model, optimizer, train_loader, device, epochs = 20):
         
 #def eval(model,images)
 #    model.eval()
-train(model, optimizer, train_loader, device, epochs = 3)
+train(model, optimizer, train_loader, device, epochs = 10)
     
     
 #    return()
