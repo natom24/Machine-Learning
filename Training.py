@@ -30,12 +30,8 @@ device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('c
 
 print(f"Training on device {device}.")
 
-
-
 model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
-
-
 
 ####### Load data #######
 hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True) # Loads hemocyte data in
@@ -56,8 +52,8 @@ train_loader = torch.utils.data.DataLoader(train_set, batch_size = 4,shuffle = F
 
 params = [p for p in model.parameters() if p.requires_grad]
 
-#optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0001)
-optimizer = torch.optim.Adam(params, lr=0.001,  weight_decay=0.0001)
+optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0001)
+#optimizer = torch.optim.Adam(params, lr=0.001,  weight_decay=0.0001)
 
 lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,step_size = 3, gamma = .1)
 
@@ -95,14 +91,10 @@ def train(model, optimizer, train_loader, device, epochs = 20):
         #model.eval()
         #for images, target in val_loader:
         #    model(images)
-            
-
-        
-            
         
 #def eval(model,images)
 #    model.eval()
-train(model, optimizer, train_loader, device, epochs = 7)
+train(model, optimizer, train_loader, device, epochs = 3)
     
     
 #    return()
