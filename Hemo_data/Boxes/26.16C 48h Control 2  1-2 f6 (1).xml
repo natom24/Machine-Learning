@@ -1,7 +1,7 @@
 <annotation>
-	<folder>full_Images</folder>
+	<folder>Images</folder>
 	<filename>26.16C 48h Control 2	1-2 f6 (1).JPG</filename>
-	<path>C:\School\Project\Code\Hemo_data\full_Images\26.16C 48h Control 2	1-2 f6 (1).JPG</path>
+	<path>C:\Machine-Learning\Hemo_data\Images\26.16C 48h Control 2	1-2 f6 (1).JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -65,18 +65,6 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1456</xmin>
-			<ymin>271</ymin>
-			<xmax>1470</xmax>
-			<ymax>288</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>1483</xmin>
 			<ymin>230</ymin>
 			<xmax>1496</xmax>
@@ -117,18 +105,6 @@
 			<ymin>170</ymin>
 			<xmax>1307</xmax>
 			<ymax>188</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1365</xmin>
-			<ymin>26</ymin>
-			<xmax>1383</xmax>
-			<ymax>46</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -213,18 +189,6 @@
 			<ymin>69</ymin>
 			<xmax>1114</xmax>
 			<ymax>80</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1202</xmin>
-			<ymin>223</ymin>
-			<xmax>1216</xmax>
-			<ymax>237</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -2669,18 +2633,6 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>209</xmin>
-			<ymin>1102</ymin>
-			<xmax>224</xmax>
-			<ymax>1117</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>83</xmin>
 			<ymin>863</ymin>
 			<xmax>99</xmax>
@@ -2937,18 +2889,6 @@
 			<ymin>667</ymin>
 			<xmax>81</xmax>
 			<ymax>680</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>16</xmin>
-			<ymin>595</ymin>
-			<xmax>29</xmax>
-			<ymax>613</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -3269,30 +3209,6 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>233</xmin>
-			<ymin>119</ymin>
-			<xmax>249</xmax>
-			<ymax>137</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>349</xmin>
-			<ymin>5</ymin>
-			<xmax>366</xmax>
-			<ymax>23</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>hemo</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
 			<xmin>740</xmin>
 			<ymin>577</ymin>
 			<xmax>757</xmax>
@@ -3333,6 +3249,78 @@
 			<ymin>1059</ymin>
 			<xmax>618</xmax>
 			<ymax>1071</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>318</xmin>
+			<ymin>583</ymin>
+			<xmax>337</xmax>
+			<ymax>603</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>422</xmin>
+			<ymin>719</ymin>
+			<xmax>441</xmax>
+			<ymax>734</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>123</xmin>
+			<ymin>694</ymin>
+			<xmax>139</xmax>
+			<ymax>705</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>123</xmin>
+			<ymin>682</ymin>
+			<xmax>139</xmax>
+			<ymax>696</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>679</xmin>
+			<ymin>1084</ymin>
+			<xmax>702</xmax>
+			<ymax>1108</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1203</xmin>
+			<ymin>223</ymin>
+			<xmax>1217</xmax>
+			<ymax>238</ymax>
 		</bndbox>
 	</object>
 </annotation>
