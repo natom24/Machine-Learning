@@ -44,7 +44,7 @@ train_size = len(hemo_dataset)-test_size-val_size # Generate the size of the tra
 test_set, train_set, val_set = torch.utils.data.random_split(hemo_dataset, [test_size,train_size, val_size]) # Split the data into train and test
 
 
-train_loader = torch.utils.data.DataLoader(train_set, batch_size = 6,shuffle = False, collate_fn=collate_fn)
+train_loader = torch.utils.data.DataLoader(train_set, batch_size = 23,shuffle = False, collate_fn=collate_fn)
 #val_loader = torch.utils.data.DataLoader(val_set, shuffle = True, collate_fn=collate_fn)
 ##########################
 
@@ -94,7 +94,7 @@ def train(model, optimizer, train_loader, device, epochs = 20):
         
 #def eval(model,images)
 #    model.eval()
-train(model, optimizer, train_loader, device, epochs = 10)
+train(model, optimizer, train_loader, device, epochs = 3)
     
     
 #    return()
