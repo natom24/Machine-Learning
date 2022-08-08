@@ -6,6 +6,7 @@ Created on Mon Jul 11 15:14:08 2022
 """
 import torch
 import torchvision
+import Training
 from PIL import Image
 
 import matplotlib.pyplot as plt
