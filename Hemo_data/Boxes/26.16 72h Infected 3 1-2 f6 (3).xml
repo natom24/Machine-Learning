@@ -1,7 +1,7 @@
 <annotation>
-	<folder>full_Images</folder>
+	<folder>Images</folder>
 	<filename>26.16 72h Infected 3 1-2 f6 (3).JPG</filename>
-	<path>C:\School\Project\Code\Hemo_data\full_Images\26.16 72h Infected 3 1-2 f6 (3).JPG</path>
+	<path>C:\Machine-Learning\Hemo_data\Images\26.16 72h Infected 3 1-2 f6 (3).JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -1845,6 +1845,54 @@
 			<ymin>641</ymin>
 			<xmax>66</xmax>
 			<ymax>664</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>788</xmin>
+			<ymin>569</ymin>
+			<xmax>805</xmax>
+			<ymax>586</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>804</xmin>
+			<ymin>738</ymin>
+			<xmax>821</xmax>
+			<ymax>750</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>295</xmin>
+			<ymin>642</ymin>
+			<xmax>315</xmax>
+			<ymax>661</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>799</xmin>
+			<ymin>72</ymin>
+			<xmax>819</xmax>
+			<ymax>91</ymax>
 		</bndbox>
 	</object>
 </annotation>

@@ -1,7 +1,7 @@
 <annotation>
-	<folder>full_Images</folder>
+	<folder>Images</folder>
 	<filename>26.16C 24h Infected 2 1-2 f9 (1).JPG</filename>
-	<path>C:\Machine-Learning\Hemo_data\full_Images\26.16C 24h Infected 2 1-2 f9 (1).JPG</path>
+	<path>C:\Machine-Learning\Hemo_data\Images\26.16C 24h Infected 2 1-2 f9 (1).JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -114,9 +114,9 @@
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>738</xmin>
-			<ymin>958</ymin>
-			<xmax>775</xmax>
-			<ymax>998</ymax>
+			<ymin>964</ymin>
+			<xmax>769</xmax>
+			<ymax>991</ymax>
 		</bndbox>
 	</object>
 	<object>

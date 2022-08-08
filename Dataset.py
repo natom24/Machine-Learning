@@ -62,7 +62,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
             #boxes = t_data['boxes']
             
             to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
-            imgs = to_tensor(img) # Calls conversion
+            img = to_tensor(img) # Calls conversion
         
 
         target = {}
@@ -73,7 +73,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
 
         
         
-        return imgs,target
+        return img,target
         
     def __len__(self,):
         """
@@ -81,3 +81,30 @@ class HemocyteDataset(torch.utils.data.Dataset):
         """
         return len(self.img_list)
 
+
+#def get_transforms(train):
+#    transform_list = []
+
+#    if train:
+#        transform_list.append(T.FixedSizeCrop(size = 512))
+    
+#    transform_list.append(T.PILToTensor()))
+    #img = to_tensor(img) # Calls conversion
+#    return Compose(transform_list)  
+
+
+
+def collate_fn(batch):
+    
+    """
+    Formats data in lists since each image often has a different number of objects 
+    """
+    
+    image = list()
+    target = list()
+    
+    for b in batch:
+        image.append(b[0])
+        target.append(b[1])
+    
+    return image,target

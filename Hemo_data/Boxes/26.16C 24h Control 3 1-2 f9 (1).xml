@@ -1,7 +1,7 @@
 <annotation>
-	<folder>full_Images</folder>
+	<folder>Images</folder>
 	<filename>26.16C 24h Control 3 1-2 f9 (1).JPG</filename>
-	<path>C:\Machine-Learning\Hemo_data\full_Images\26.16C 24h Control 3 1-2 f9 (1).JPG</path>
+	<path>C:\Machine-Learning\Hemo_data\Images\26.16C 24h Control 3 1-2 f9 (1).JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -53,10 +53,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1009</xmin>
-			<ymin>357</ymin>
-			<xmax>1041</xmax>
-			<ymax>396</ymax>
+			<xmin>1014</xmin>
+			<ymin>366</ymin>
+			<xmax>1038</xmax>
+			<ymax>391</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -65,10 +65,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>960</xmin>
-			<ymin>494</ymin>
-			<xmax>1002</xmax>
-			<ymax>536</ymax>
+			<xmin>969</xmin>
+			<ymin>500</ymin>
+			<xmax>996</xmax>
+			<ymax>533</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -89,10 +89,10 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1142</xmin>
-			<ymin>1125</ymin>
-			<xmax>1180</xmax>
-			<ymax>1166</ymax>
+			<xmin>1150</xmin>
+			<ymin>1133</ymin>
+			<xmax>1177</xmax>
+			<ymax>1162</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -129,6 +129,30 @@
 			<ymin>377</ymin>
 			<xmax>1270</xmax>
 			<ymax>403</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>443</xmin>
+			<ymin>789</ymin>
+			<xmax>468</xmax>
+			<ymax>820</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>799</xmin>
+			<ymin>1035</ymin>
+			<xmax>838</xmax>
+			<ymax>1065</ymax>
 		</bndbox>
 	</object>
 </annotation>

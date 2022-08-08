@@ -10,19 +10,26 @@ from torchvision.utils import draw_bounding_boxes
 
 ########################### Model ############################################
 
-def create_model(num_classes):
+def create_model(num_classes = 2):
     
     # load model 
-    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights = True) 
+    #model = torchvision.models.detection.faster_rcnn.FasterRCNN(backbone = weights = True) 
     
     # Define the number of input features
+    #in_features = model.roi_heads.box_predictor.cls_score.in_features
+    
+    
+      ############Delete?##############
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn_v2(pretrained=True, num_classes = 2)
     in_features = model.roi_heads.box_predictor.cls_score.in_features
+    #model.roi_heads.maskrcnn_loss = nn.BCELoss()
+    model.roi_heads.box_predictor = torchvision.models.detection.faster_rcnn.FastRCNNPredictor(in_features, num_classes=2)
+    ############Delete?##############
     
     #replace the pre-trained head
-    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
+    #model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
     
     return model
-
 ################################################################################
    
 # Test for GPU, run on CPU if GPU is not available
@@ -34,9 +41,9 @@ model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
 
 ####### Load data #######
-hemo_dataset = HemocyteDataset(file_dir='C:\School\Project\Code', transforms = True) # Loads hemocyte data in
+hemo_dataset = HemocyteDataset(file_dir='C:\Machine-Learning', transforms = True) # Loads hemocyte data in
 
-test_size = int(.2*len(hemo_dataset)) # Generate the size of the test set
+test_size = int(.99*len(hemo_dataset)) # Generate the size of the test set
 val_size = 0 #int((len(hemo_dataset)-test_size)*.4)
 train_size = len(hemo_dataset)-test_size-val_size # Generate the size of the train set
 
@@ -52,7 +59,7 @@ train_loader = torch.utils.data.DataLoader(train_set, batch_size = 23,shuffle = 
 
 params = [p for p in model.parameters() if p.requires_grad]
 
-optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.0001)
+optimizer = torch.optim.SGD(params, lr=0.001, momentum=0.9, weight_decay=0.00005)
 #optimizer = torch.optim.Adam(params, lr=0.001,  weight_decay=0.0001)
 
 lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,step_size = 3, gamma = .1)
@@ -94,7 +101,4 @@ def train(model, optimizer, train_loader, device, epochs = 20):
         
 #def eval(model,images)
 #    model.eval()
-train(model, optimizer, train_loader, device, epochs = 3)
-    
-    
-#    return()
+train(model, optimizer, train_loader, device, epochs = 10)
