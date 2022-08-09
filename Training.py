@@ -42,7 +42,7 @@ model = create_model(num_classes = 2)
 model = model.to(device) # runs model on GPU if available
 
 ####### Load data #######
-hemo_dataset = HemocyteDataset(file_dir='C:\Machine-Learning', transforms = True) # Loads hemocyte data in
+hemo_dataset = HemocyteDataset(file_dir='C:\Machine-Learning', transforms = get_transforms(train = True)) # Loads hemocyte data in
 
 test_size = int(.99*len(hemo_dataset)) # Generate the size of the test set
 val_size = 0 #int((len(hemo_dataset)-test_size)*.4)

@@ -1,9 +1,11 @@
 import os
 import re
 import torch
-from torchvision import transforms
+import transforms as T
 import xml.etree.ElementTree as ET
 from PIL import Image
+import albumentations as A
+import albumentations.pytorch
 #from torchvision import utils
 
 class HemocyteDataset(torch.utils.data.Dataset):
@@ -55,21 +57,20 @@ class HemocyteDataset(torch.utils.data.Dataset):
             boxes.append([xmin, ymin, xmax, ymax])
             
 
-
-        if self.transforms is not None:
-            #t_data = self.transforms(img, boxes)
-            #img = t_data['images']
-            #boxes = t_data['boxes']
-            
-            to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
-            img = to_tensor(img) # Calls conversion
-        
-
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
         target['labels'] = torch.ones((len(boxes),), dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
         
+
+
+        if self.transforms is not None:
+            img, target = self.transforms(img, target)
+            #to_tensor= transforms.ToTensor() # May need to be changed, just a quick method of converting to tensor for testing
+            #img = to_tensor(img) # Calls conversion
+        
+
+
 
         
         
@@ -82,16 +83,17 @@ class HemocyteDataset(torch.utils.data.Dataset):
         return len(self.img_list)
 
 
-#def get_transforms(train):
-#    transform_list = []
-
-#    if train:
-#        transform_list.append(T.FixedSizeCrop(size = 512))
+def get_transforms(train):
+    transform_list = []
+    transform_list.append(T.PILToTensor())
     
-#    transform_list.append(T.PILToTensor()))
-    #img = to_tensor(img) # Calls conversion
-#    return Compose(transform_list)  
-
+    if train:
+        transform_list.append(T.RandomHorizontalFlip(0.5))
+        transform_list.append(T.FixedSizeCrop(size = [512,512]))
+    
+    return T.Compose(transform_list)
+    
+    return transform_list
 
 
 def collate_fn(batch):
