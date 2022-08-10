@@ -13,22 +13,10 @@ from torchvision.utils import draw_bounding_boxes
 
 def create_model(num_classes = 2):
     
-    # load model 
-    #model = torchvision.models.detection.faster_rcnn.FasterRCNN(backbone = weights = True) 
-    
-    # Define the number of input features
-    #in_features = model.roi_heads.box_predictor.cls_score.in_features
-    
-    
-      ############Delete?##############
     model = torchvision.models.detection.fasterrcnn_resnet50_fpn_v2(pretrained=True, num_classes = 2)
     in_features = model.roi_heads.box_predictor.cls_score.in_features
-    #model.roi_heads.maskrcnn_loss = nn.BCELoss()
+
     model.roi_heads.box_predictor = torchvision.models.detection.faster_rcnn.FastRCNNPredictor(in_features, num_classes=2)
-    ############Delete?##############
-    
-    #replace the pre-trained head
-    #model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
     
     return model
 ################################################################################

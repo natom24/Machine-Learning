@@ -4,8 +4,6 @@ import torch
 import transforms as T
 import xml.etree.ElementTree as ET
 from PIL import Image
-import albumentations as A
-import albumentations.pytorch
 #from torchvision import utils
 
 class HemocyteDataset(torch.utils.data.Dataset):
@@ -86,6 +84,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
 def get_transforms(train):
     transform_list = []
     transform_list.append(T.PILToTensor())
+    transform_list.append(T.ConvertImageDtype(torch.float))
     
     if train:
         transform_list.append(T.RandomHorizontalFlip(0.5))
