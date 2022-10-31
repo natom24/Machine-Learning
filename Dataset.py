@@ -19,7 +19,7 @@ class HemocyteDataset(torch.utils.data.Dataset):
         
         self.file_dir = file_dir
         
-        self.img_list = list(os.listdir(os.path.join(file_dir,'Hemo_data',"Images")))
+        self.img_list = list(os.listdir(os.path.join(file_dir,'Hemo_data',"Test","Test_Photos")))
         
         self.transforms = transforms
         
@@ -30,35 +30,39 @@ class HemocyteDataset(torch.utils.data.Dataset):
         """
         # Pulls a string with the path to the selected image
         
-        img_path = os.path.join(self.file_dir,"Hemo_data","Images",self.img_list[idx]) 
+        img_path = os.path.join(self.file_dir,'Hemo_data',"Test","Test_Photos",self.img_list[idx]) 
         
         annot_name = re.sub('\.JPG','.xml',self.img_list[idx]) # Get name of file with xml ending
-        annot_path = os.path.join(self.file_dir,"Hemo_data","Boxes",annot_name)
+        annot_path = os.path.join(self.file_dir,'Hemo_data',"Test","Test_Boxes",annot_name)
         
         img = Image.open(img_path)
         img = img.convert('RGB')
         
         boxes = []
+        area = []
         #iscrowd = []
-        
+      
         tree = ET.parse(annot_path)
         root = tree.getroot()
-            
+          
         for obj in root.findall('object'):
             box_size = obj.find('bndbox')
-            
+          
             xmin = int(box_size.find('xmin').text)
             ymin = int(box_size.find('ymin').text)
             xmax = int(box_size.find('xmax').text)
             ymax = int(box_size.find('ymax').text)
 
             boxes.append([xmin, ymin, xmax, ymax])
-            
+            area.append((xmax-xmin)*(ymax-ymin))
+      
 
         target = {}
         target['boxes'] = torch.as_tensor(boxes,dtype=torch.float32)
+        target['area'] = torch.as_tensor(area, dtype=torch.float32)
         target['labels'] = torch.ones((len(boxes),), dtype=torch.int64)
         target['image_id'] = torch.as_tensor([idx])
+        target["iscrowd"] = torch.zeros((len(boxes)), dtype=torch.int64)
         
 
 
@@ -88,7 +92,7 @@ def get_transforms(train):
     
     if train:
         transform_list.append(T.RandomHorizontalFlip(0.5))
-        transform_list.append(T.FixedSizeCrop(size = [512,512]))
+        #transform_list.append(T.FixedSizeCrop(size = [512,512]))
     
     return T.Compose(transform_list)
     

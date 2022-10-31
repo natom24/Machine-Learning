@@ -6,16 +6,16 @@ Created on Mon Jul 11 15:14:08 2022
 """
 import torch
 import torchvision
-import Training
+#import Training
 from PIL import Image
 
-import matplotlib.pyplot as plt
+#import matplotlib; matplotlib.use('TkAgg')
 
 test_loader = torch.utils.data.DataLoader(test_set, shuffle = True, collate_fn=collate_fn)
 
 #boxes = x[0]['boxes']
 
-def draw_bbox(data_loader):
+def draw_bbox(test_loader):
     
     Images = []
     
@@ -34,6 +34,7 @@ def draw_bbox(data_loader):
     
     return img_box
 
-ex_img = draw_bbox(test_loader)
+ex_img = draw_bbox(train_loader)
 
-plt.imshow(ex_img)
+matplotlib.pyplot.imshow(ex_img)
+matplotlib.pyplot.show()

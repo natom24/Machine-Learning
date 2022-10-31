@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 def pascalvoc_to_yolo(file_dir, save_path, width = 1600, height = 1200):
     
-    annot_path = os.path.join(file_dir, "Hemo_data","Boxes")
+    annot_path = os.path.join(file_dir, "Hemo_data","Test","Test_Boxes")
     
     for file in os.listdir(annot_path):
         
@@ -41,11 +41,11 @@ def pascalvoc_to_yolo(file_dir, save_path, width = 1600, height = 1200):
                 for i in boxes:
                     f.write(i)
                     
-        print('Done!')
+    print('Done!')
             
 def main():
     
-    pascalvoc_to_yolo(file_dir = 'C:\School\Project\Machine-Learning', save_path = 'C:\School\Project\Machine-Learning\Hemo_data\Yolo_Boxes')
+    pascalvoc_to_yolo(file_dir = 'C:\School\Project\Machine-Learning', save_path = 'C:\School\Project\Machine-Learning\Hemo_data\Test\Test_Yolo_Boxes')
     
     
 main()
