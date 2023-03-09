@@ -1,7 +1,7 @@
 <annotation>
-	<folder>Photos</folder>
+	<folder>test</folder>
 	<filename>IMG_7080.JPG</filename>
-	<path>C:\School\Project\Machine-Learning\Hemo_data\Small_Grid\Photos\IMG_7080.JPG</path>
+	<path>C:\School\Project\Machine-Learning\Yolo\datasets\hemo\images\test\IMG_7080.JPG</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -233,9 +233,9 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>1155</xmin>
+			<xmin>1157</xmin>
 			<ymin>114</ymin>
-			<xmax>1222</xmax>
+			<xmax>1224</xmax>
 			<ymax>165</ymax>
 		</bndbox>
 	</object>
