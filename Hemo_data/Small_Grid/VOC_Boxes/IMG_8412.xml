@@ -1,7 +1,13 @@
 <annotation>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 	<folder>photo_ann_test</folder>
 	<filename>IMG_8412.JPG</filename>
 	<path>C:\School\Project\Machine-Learning\Hemo_data\Small_Grid\photo_ann_test\IMG_8412.JPG</path>
+========
+	<folder>Photos</folder>
+	<filename>IMG_7364.JPG</filename>
+	<path>C:\School\Project\Machine-Learning\Hemo_data\Small_Grid\Photos\IMG_7364.JPG</path>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -13,11 +19,27 @@
 	<segmented>0</segmented>
 	<object>
 		<name>hemo</name>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
+========
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>3</xmin>
+			<ymin>117</ymin>
+			<xmax>72</xmax>
+			<ymax>184</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		<pose>Unspecified</pose>
 		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
 			<xmin>1</xmin>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<ymin>635</ymin>
 			<xmax>31</xmax>
 			<ymax>684</ymax>
@@ -57,18 +79,45 @@
 			<ymin>1166</ymin>
 			<xmax>1469</xmax>
 			<ymax>1200</ymax>
+========
+			<ymin>241</ymin>
+			<xmax>45</xmax>
+			<ymax>314</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
 		<name>hemo</name>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
+========
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>391</ymin>
+			<xmax>40</xmax>
+			<ymax>465</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>828</xmin>
 			<ymin>389</ymin>
 			<xmax>890</xmax>
 			<ymax>457</ymax>
+========
+			<xmin>141</xmin>
+			<ymin>494</ymin>
+			<xmax>203</xmax>
+			<ymax>564</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -77,10 +126,16 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>943</xmin>
 			<ymin>1054</ymin>
 			<xmax>1009</xmax>
 			<ymax>1116</ymax>
+========
+			<xmin>202</xmin>
+			<ymin>494</ymin>
+			<xmax>247</xmax>
+			<ymax>562</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -89,10 +144,56 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+			<xmin>155</xmin>
+			<ymin>459</ymin>
+			<xmax>216</xmax>
+			<ymax>508</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>328</xmin>
+			<ymin>490</ymin>
+			<xmax>409</xmax>
+			<ymax>576</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1547</xmin>
 			<ymin>24</ymin>
 			<xmax>1592</xmax>
 			<ymax>68</ymax>
+========
+			<xmin>386</xmin>
+			<ymin>435</ymin>
+			<xmax>458</xmax>
+			<ymax>531</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
+========
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>506</xmin>
+			<ymin>426</ymin>
+			<xmax>569</xmax>
+			<ymax>481</ymax>
 		</bndbox>
 	</object>
 	<object>
@@ -101,10 +202,30 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+			<xmin>496</xmin>
+			<ymin>380</ymin>
+			<xmax>558</xmax>
+			<ymax>436</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1242</xmin>
 			<ymin>830</ymin>
 			<xmax>1307</xmax>
 			<ymax>873</ymax>
+========
+			<xmin>934</xmin>
+			<ymin>295</ymin>
+			<xmax>998</xmax>
+			<ymax>359</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -113,22 +234,51 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>575</xmin>
 			<ymin>960</ymin>
 			<xmax>662</xmax>
 			<ymax>1043</ymax>
+========
+			<xmin>952</xmin>
+			<ymin>355</ymin>
+			<xmax>1001</xmax>
+			<ymax>413</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
 		<name>hemo</name>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
+========
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+			<xmin>1012</xmin>
+			<ymin>333</ymin>
+			<xmax>1076</xmax>
+			<ymax>417</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1535</xmin>
 			<ymin>217</ymin>
 			<xmax>1587</xmax>
 			<ymax>261</ymax>
+========
+			<xmin>1177</xmin>
+			<ymin>118</ymin>
+			<xmax>1252</xmax>
+			<ymax>190</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -137,10 +287,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1332</xmin>
 			<ymin>273</ymin>
 			<xmax>1412</xmax>
 			<ymax>351</ymax>
+========
+			<xmin>1426</xmin>
+			<ymin>416</ymin>
+			<xmax>1498</xmax>
+			<ymax>484</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -149,10 +306,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1101</xmin>
 			<ymin>899</ymin>
 			<xmax>1158</xmax>
 			<ymax>954</ymax>
+========
+			<xmin>1009</xmin>
+			<ymin>670</ymin>
+			<xmax>1085</xmax>
+			<ymax>757</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -161,10 +325,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>103</xmin>
 			<ymin>481</ymin>
 			<xmax>168</xmax>
 			<ymax>550</ymax>
+========
+			<xmin>845</xmin>
+			<ymin>755</ymin>
+			<xmax>925</xmax>
+			<ymax>836</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -173,6 +344,7 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1290</xmin>
 			<ymin>218</ymin>
 			<xmax>1347</xmax>
@@ -237,6 +409,12 @@
 			<ymin>666</ymin>
 			<xmax>595</xmax>
 			<ymax>741</ymax>
+========
+			<xmin>524</xmin>
+			<ymin>738</ymin>
+			<xmax>602</xmax>
+			<ymax>824</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -245,10 +423,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1167</xmin>
 			<ymin>827</ymin>
 			<xmax>1233</xmax>
 			<ymax>898</ymax>
+========
+			<xmin>493</xmin>
+			<ymin>776</ymin>
+			<xmax>574</xmax>
+			<ymax>867</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -257,10 +442,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>802</xmin>
 			<ymin>606</ymin>
 			<xmax>870</xmax>
 			<ymax>671</ymax>
+========
+			<xmin>450</xmin>
+			<ymin>707</ymin>
+			<xmax>506</xmax>
+			<ymax>784</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -269,10 +461,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>248</xmin>
 			<ymin>306</ymin>
 			<xmax>315</xmax>
 			<ymax>373</ymax>
+========
+			<xmin>166</xmin>
+			<ymin>714</ymin>
+			<xmax>228</xmax>
+			<ymax>798</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -281,10 +480,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1460</xmin>
 			<ymin>115</ymin>
 			<xmax>1517</xmax>
 			<ymax>179</ymax>
+========
+			<xmin>238</xmin>
+			<ymin>842</ymin>
+			<xmax>301</xmax>
+			<ymax>918</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -293,10 +499,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>916</xmin>
 			<ymin>88</ymin>
 			<xmax>974</xmax>
 			<ymax>148</ymax>
+========
+			<xmin>216</xmin>
+			<ymin>1041</ymin>
+			<xmax>279</xmax>
+			<ymax>1112</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -305,10 +518,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>422</xmin>
 			<ymin>636</ymin>
 			<xmax>485</xmax>
 			<ymax>697</ymax>
+========
+			<xmin>609</xmin>
+			<ymin>1075</ymin>
+			<xmax>697</xmax>
+			<ymax>1155</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -317,10 +537,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>659</xmin>
 			<ymin>45</ymin>
 			<xmax>723</xmax>
 			<ymax>108</ymax>
+========
+			<xmin>905</xmin>
+			<ymin>952</ymin>
+			<xmax>979</xmax>
+			<ymax>1045</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -329,10 +556,17 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>438</xmin>
 			<ymin>65</ymin>
 			<xmax>503</xmax>
 			<ymax>133</ymax>
+========
+			<xmin>1305</xmin>
+			<ymin>935</ymin>
+			<xmax>1381</xmax>
+			<ymax>1029</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 	<object>
@@ -341,10 +575,29 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
+<<<<<<<< HEAD:Hemo_data/Small_Grid/VOC_Boxes/IMG_8412.xml
 			<xmin>1344</xmin>
 			<ymin>608</ymin>
 			<xmax>1415</xmax>
 			<ymax>683</ymax>
+========
+			<xmin>876</xmin>
+			<ymin>53</ymin>
+			<xmax>935</xmax>
+			<ymax>117</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>hemo</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1496</xmin>
+			<ymin>202</ymin>
+			<xmax>1586</xmax>
+			<ymax>296</ymax>
+>>>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b:Hemo_data/Small_Grid/VOC_Boxes/IMG_7364.xml
 		</bndbox>
 	</object>
 </annotation>
