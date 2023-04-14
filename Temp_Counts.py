@@ -50,21 +50,21 @@ mean31 = sum(temp31)/len(temp31)
 
 plt.boxplot(data, labels = ['26','31'])
 
-inf_coev_26 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/26_Inf_Coev")
+inf_coev_26 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/26_Inf_Coev")
 
-inf_control_26 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/26_Inf_Control")
+inf_control_26 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/26_Inf_Control")
 
-uninf_control_26 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/26_Uninf_Control")
+uninf_control_26 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/26_Uninf_Control")
 
-uninf_coev_26 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/26_Uninf_Coev")
+uninf_coev_26 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/26_Uninf_Coev")
 
-inf_coev_31 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/31_Inf_Coev")
+inf_coev_31 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/31_Inf_Coev")
 
-inf_control_31 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/31_Inf_Control")
+inf_control_31 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/31_Inf_Control")
 
-uninf_control_31 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/31_Uninf_Control")
+uninf_control_31 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/31_Uninf_Control")
 
-uninf_coev_31 = temp_count("C:/School/Project/Machine-Learning/Hemo_data/Haemocyte_Virus_Split/31_Uninf_Coev")
+uninf_coev_31 = temp_count("C:/School/Project/Data Splits/Haemocyte_Virus_Split/31_Uninf_Coev")
 
 data2 = [inf_coev_26, inf_control_26, uninf_control_26, uninf_coev_26, inf_coev_31, inf_control_31, uninf_control_31, uninf_coev_31] 
 
