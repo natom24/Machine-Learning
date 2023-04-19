@@ -6,7 +6,7 @@ def test_train_val_split(origin,save_path):
     
     ## Set image location
     img_path = os.path.join(origin, "Photos")
-    annot_path = os.path.join(origin, "Yolo_Boxes")
+    annot_path = os.path.join(origin, "VOC_Boxes")
     
     # Record photo/annotation names as a list
     img_list = os.listdir(img_path)
@@ -28,8 +28,6 @@ def test_train_val_split(origin,save_path):
     # Pull the val images
     val_img_list = [img_list[i] for i in val_nums] # Pull the photos based on val_nums
     val_annot_list = [annot_list[i] for i in val_nums]
-    
-
     
     # Pull the test images
     test_img_list = [img_list[i] for i in test_nums]
@@ -57,17 +55,17 @@ def test_train_val_split(origin,save_path):
     
     
     # Move training data
-    [shutil.copyfile(os.path.join(origin, 'Photos', i), os.path.join(save_path, 'images','train', i)) for i in train_img_list]  
-    [shutil.copyfile(os.path.join(origin, 'Yolo_Boxes', i), os.path.join(save_path, 'labels','train', i)) for i in train_annot_list]
+    [shutil.copyfile(os.path.join(img_path, i), os.path.join(save_path, 'images','train', i)) for i in train_img_list]  
+    [shutil.copyfile(os.path.join(annot_path, i), os.path.join(save_path, 'labels','train', i)) for i in train_annot_list]
     
     # Move val Data
-    [shutil.copyfile(os.path.join(origin, 'Photos', i), os.path.join(save_path, 'images','val', i)) for i in val_img_list]  
-    [shutil.copyfile(os.path.join(origin, 'Yolo_Boxes', i), os.path.join(save_path, 'labels','val', i)) for i in val_annot_list]
+    [shutil.copyfile(os.path.join(img_path, i), os.path.join(save_path, 'images','val', i)) for i in val_img_list]  
+    [shutil.copyfile(os.path.join(annot_path, i), os.path.join(save_path, 'labels','val', i)) for i in val_annot_list]
 
     # Mone test Data
-    [shutil.copyfile(os.path.join(origin, 'Photos', i), os.path.join(save_path, 'images','test', i)) for i in test_img_list]  
-    [shutil.copyfile(os.path.join(origin, 'Yolo_Boxes', i), os.path.join(save_path, 'labels','test', i)) for i in test_annot_list]
+    [shutil.copyfile(os.path.join(img_path, i), os.path.join(save_path, 'images','test', i)) for i in test_img_list]  
+    [shutil.copyfile(os.path.join(annot_path, i), os.path.join(save_path, 'labels','test', i)) for i in test_annot_list]
 
     
-test_train_val_split(origin = 'C:\School\Project\Machine-Learning\Hemo_data\Small_Grid', save_path = 'C:\School\Project\Machine-Learning\Yolo\datasets\hemo')
+test_train_val_split(origin = 'C:\School\Project\Machine-Learning\Hemo_data\Small_Grid', save_path = 'C:\School\Project\Machine-Learning\Hemo_data\VOC_Split')
 

@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 22 10:09:40 2023
 
-@author: natom
-"""
 
 import os
 import argparse
@@ -155,5 +150,5 @@ def main():
     )
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()

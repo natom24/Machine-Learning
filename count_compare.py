@@ -31,11 +31,7 @@ def count_compare(count_loc, mac_count_loc):
 count_compare(count_loc = 'C:/School/Project/Machine-Learning/Yolo/datasets/hemo/labels/test', 
               mac_count_loc = 'C:/School/Project/Machine-Learning/Yolo/yolov8/runs/detect/predict/labels')
 
-<<<<<<< HEAD
 
-#Temp_Counts = 
-=======
->>>>>>> 9283efe25719c83483d70b1ca2c2db95ae494b8b
 #c_count = 0
 #i_count = 0
 

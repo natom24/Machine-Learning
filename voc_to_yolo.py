@@ -15,7 +15,7 @@ def pascalvoc_to_yolo(file_dir, save_path, width = 1600, height = 1200):
         file_name = file
         file_name = file_name[:-4] # Drop the xml ending
         
-        file_path = os.path.join(save_path, file_name + '.txt')
+        #file_path = os.path.join(save_path, file_name + '.txt')
         
         boxes = []
         
