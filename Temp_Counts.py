@@ -103,6 +103,8 @@ df_comb = [df_inf_coev_26, df_inf_cont_26, df_uninf_cont_26, df_inf_coev_31, df_
 
 df_comb = pd.concat(df_comb)
 
+
+
 stat_sum = ols("counts~C(temp)+C(treatment)+C(inf)+C(temp):C(treatment)+C(temp):C(inf) +C(treatment):C(inf)+C(temp):C(treatment):C(inf)", data=df_comb).fit()
 sm.stats.anova_lm(stat_sum, typ=3)
 
