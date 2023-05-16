@@ -75,17 +75,19 @@ import numpy as np
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-inf_coev_26_12 = temp_count("C:/School/Project/Data Splits/Last_generation/26.16/Infected")
+inf_coev_26_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/26.16/Infected_Coevolved")
 
-inf_control_26_12 = temp_count("C:/School/Project/Data Splits/Last_generation/26.16/Control/Infected_Control")
+inf_control_26_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/26.16/Infected_Control")
 
-uninf_control_26_12 = temp_count("C:/School/Project/Data Splits/Last_generation/26.16/Control/Uninfected_Control")
+uninf_control_26_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/26.16/Uninfected_Control")
 
-inf_coev_31_12 = temp_count("C:/School/Project/Data Splits/Last_generation/31.21/Infected")
+uninf_coev_26_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/26.16/Uninfected_Coevolved")
 
-inf_control_31_12 = temp_count("C:/School/Project/Data Splits/Last_generation/31.21/Control/Infected_Control")
+inf_coev_31_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/31.21/Infected_Coev")
 
-uninf_control_31_12 = temp_count("C:/School/Project/Data Splits/Last_generation/31.21/Control/Uninfected_Control")
+inf_control_31_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/31.21/Infected_Control")
+
+uninf_control_31_12 = temp_count("C:/School/Project/Data Splits/Last_Gen_Uncropped/31.21/Uninfected_Control")
 
 df_inf_coev_26 = pd.DataFrame({'counts': inf_coev_26_12, 'temp': np.repeat('26',len(inf_coev_26_12)),'treatment': np.repeat('coevolved',len(inf_coev_26_12)),'inf':np.repeat('inf',len(inf_coev_26_12))})
 
@@ -93,17 +95,19 @@ df_inf_cont_26 = pd.DataFrame({'counts': inf_control_26_12, 'temp': np.repeat('2
 
 df_uninf_cont_26 = pd.DataFrame({'counts': uninf_control_26_12, 'temp': np.repeat('26',len(uninf_control_26_12)),'treatment': np.repeat('control',len(uninf_control_26_12)),'inf':np.repeat('uninf',len(uninf_control_26_12))})
 
+df_uninf_coev_26 = pd.DataFrame({'counts': uninf_coev_26_12, 'temp': np.repeat('26',len(uninf_coev_26_12)),'treatment': np.repeat('coevolved',len(uninf_coev_26_12)),'inf':np.repeat('uninf',len(uninf_coev_26_12))})
+
 df_inf_coev_31 = pd.DataFrame({'counts': inf_coev_31_12, 'temp': np.repeat('31',len(inf_coev_31_12)),'treatment': np.repeat('coevolved',len(inf_coev_31_12)),'inf':np.repeat('inf',len(inf_coev_31_12))})
 
 df_inf_cont_31 = pd.DataFrame({'counts': inf_control_31_12, 'temp': np.repeat('31',len(inf_control_31_12)),'treatment': np.repeat('control',len(inf_control_31_12)),'inf':np.repeat('inf',len(inf_control_31_12))})
 
 df_uninf_cont_31 = pd.DataFrame({'counts': uninf_control_31_12, 'temp': np.repeat('31',len(uninf_control_31_12)),'treatment': np.repeat('control',len(uninf_control_31_12)),'inf':np.repeat('uninf',len(uninf_control_31_12))})
 
-df_comb = [df_inf_coev_26, df_inf_cont_26, df_uninf_cont_26, df_inf_coev_31, df_inf_cont_31, df_uninf_cont_31]
+df_comb = [df_inf_coev_26, df_inf_cont_26, df_uninf_cont_26, df_uninf_coev_26, df_inf_coev_31, df_inf_cont_31, df_uninf_cont_31]
 
 df_comb = pd.concat(df_comb)
 
-
+df_comb.to_csv("C:/Users/natom/Downloads/hemocytes.csv")
 
 stat_sum = ols("counts~C(temp)+C(treatment)+C(inf)+C(temp):C(treatment)+C(temp):C(inf) +C(treatment):C(inf)+C(temp):C(treatment):C(inf)", data=df_comb).fit()
 sm.stats.anova_lm(stat_sum, typ=3)
