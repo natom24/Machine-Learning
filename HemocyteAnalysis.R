@@ -43,7 +43,7 @@ ThreeWay.hemo.lm <- lm(counts ~ temp*treatment*inf, data = Hemo.Counts)
 anova(ThreeWay.hemo.lm)
 
 ## Make the uninfected temp graph
-boxplot(counts ~ temp, data = Hemo.Counts[Hemo.Counts$inf == "uninf" & Hemo.Counts$treatment == "control",], boxwex = .5, outline = FALSE)
+boxplot(counts ~ temp, data = Hemo.Counts[Hemo.Counts$inf == "uninf" & Hemo.Counts$treatment == "control",], boxwex = .25, outline = FALSE)
 
 boxplot(counts ~ temp:treatment, data = Hemo.Counts[Hemo.Counts$inf == "inf",],xlab = "treatment", boxwex = .5, outline = FALSE)
 
